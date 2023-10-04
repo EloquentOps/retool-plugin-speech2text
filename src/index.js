@@ -13,7 +13,7 @@ const errors = {
 }
 
 const buildUI = (model) => {
-    console.log('buildUI', build)
+    console.log('buildUI', model)
 
     document.body.classList.add(css.speecher)
 
