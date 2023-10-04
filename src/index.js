@@ -12,6 +12,7 @@ const errors = {
 }
 
 const buildUI = (model) => {
+    console.log('buildUI', build)
 
     document.body.classList.add(css.speecher)
 
@@ -146,8 +147,8 @@ Ret.subscribe(async model => {
         return console.log(' no speech ')
     }
 
-    if(!model.lastMessage && !model.messages){
-        // it's model change from editor
+    if(!model?.lastMessage && !model?.messages){
+        console.log('model changed from editor')
     }
 
     if(!inited){

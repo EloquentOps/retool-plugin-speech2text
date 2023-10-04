@@ -23,7 +23,7 @@ Allow the following checkbox in the `interaction` section:
 
 ### Configuration
 
-Put this optional object, values are the default:
+Optionally, you can add options such as (values are the default):
 
 ```js
 {
