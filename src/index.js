@@ -6,12 +6,10 @@ let startBtn
 let stopBtn
 let errWrapper
 
-
 const errors = {
     'not-allowed': 'You need to allow "Microphone" and "Storage and cookies" in Custom Component panel.',
     'no-speech': 'Stop due no speech around.'
 }
-
 
 const buildUI = (model) => {
 
