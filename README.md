@@ -4,7 +4,7 @@ A Custom Component for Retool that adds Speech to Text capability.
 
 It requires, the first time, the permission from the browser to use the microphone.
 
-**Heads up! **
+**Heads up!**
 
 **It ONLY works with Google Chrome because it uses the Chrome SpeechRecognition capability (that is based on Google CLoud API)**
 
