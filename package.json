@@ -10,7 +10,7 @@
     "start": "BUNDLE_VERSION=development rollup -c --watch",
     "build": "BUNDLE_VERSION=production rollup -c",
     "bump_pre": "git add -u && git commit -m \"bump release\" && npm version patch",
-    "bump": "npm run bump_pre && npm run build && npm publish",
+    "bump": "npm run bump_pre && npm run build && npm publish && git push",
     "test": "browser-sync start -s -f \"dist/*, test/*\" --startPath test --cors true"
   },
   "files": [

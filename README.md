@@ -2,13 +2,23 @@
 
 Custom component for Retool to add Speech to Text capability.
 
+It requires, the first time, the permission from the browser to use the microphone.
+
+**Heads up! It ONLY works with Google Chrome because it uses the Chrome SpeechRecognition capability (that is based on Google CLoud API)**
+
 ### Installation
 
-Put this code into the `IFrame` panel of a Retool Custom Component:
+Drag a Custom Component into your canvas.
+
+Put this code into the `IFrame Code` area of the Custom Component:
 
 ```html
 <script src="https://unpkg.com/@eloquentops/retool-plugin-speech2text"></script>
 ```
+
+Allow the following checkbox in the `interaction` section:
+- Microphone
+- Storage and cookies
 
 
 ### Configuration

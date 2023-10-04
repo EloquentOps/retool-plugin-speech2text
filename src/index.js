@@ -151,7 +151,7 @@ Ret.subscribe(async model => {
     }
 
     if(!inited){
-        buildUI(model)
+        buildUI(model || {})
         inited = true
     }
 })
