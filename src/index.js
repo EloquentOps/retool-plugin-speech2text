@@ -137,7 +137,8 @@ const stopSpeecher = () => {
 }
 
 
-Ret.subscribe(async model => {
+Ret.subscribe(_model => {
+    const model = _model || {}
     console.log('RECHART MODEL', model)
 
     const speechRec = window.SpeechRecognition || window.webkitSpeechRecognition
@@ -153,7 +154,7 @@ Ret.subscribe(async model => {
     }
 
     if(!inited){
-        buildUI(model || {})
+        buildUI(model)
         inited = true
     }
 })
