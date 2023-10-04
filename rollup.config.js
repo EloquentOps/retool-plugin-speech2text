@@ -5,7 +5,7 @@ import resolve from '@rollup/plugin-node-resolve'
 import postcss from 'rollup-plugin-postcss'
 import cssnano from 'cssnano'
 import autoprefixer from 'autoprefixer'
-
+import json from '@rollup/plugin-json'
 
 const plugins = [
   babel({
@@ -14,6 +14,7 @@ const plugins = [
   }),
   commonjs(),
   resolve(),
+  json(),
   postcss({
     modules: {
       globalModulePaths: [
