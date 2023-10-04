@@ -1,10 +1,12 @@
 ## Speech to Text for Retool
 
-Custom component for Retool to add Speech to Text capability.
+A Custom Component for Retool that adds Speech to Text capability.
 
 It requires, the first time, the permission from the browser to use the microphone.
 
-**Heads up! It ONLY works with Google Chrome because it uses the Chrome SpeechRecognition capability (that is based on Google CLoud API)**
+**Heads up! **
+
+**It ONLY works with Google Chrome because it uses the Chrome SpeechRecognition capability (that is based on Google CLoud API)**
 
 ### Installation
 
@@ -36,7 +38,19 @@ An empty object `{}` is required, though.
 }
 ```
 
-Please refer to this official documentation about the `SpeechRecognition` options.
+Please refer to this [official documentation](https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition) about the `SpeechRecognition` options.
 
 `keepActive` is a custom option that force the restart of the speech in case of silence. Otherwise the `SpeechRecognition` will end automatically.
 
+### How to get back the text
+
+Fair question. The component expose two additional properties in its model:
+
+```js
+{
+  lastMessage: '', // String
+  messages: [] // Array of strings
+}
+```
+
+So, you can bind them to your Retool component as usual you do in Retool.

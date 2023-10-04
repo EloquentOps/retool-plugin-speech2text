@@ -17,7 +17,7 @@ const buildUI = (model) => {
 
     const titleWrapper = document.createElement('div')
     titleWrapper.classList.add(css.title)
-    titleWrapper.innerHTML = 'Speech 2 Text' + ' ('+version+')'
+    titleWrapper.innerHTML = 'Speech-2-Text' + ' (v'+version+')'
     document.body.append(titleWrapper)
 
     const row = document.createElement('div')
