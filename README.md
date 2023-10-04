@@ -23,7 +23,8 @@ Allow the following checkbox in the `interaction` section:
 
 ### Configuration
 
-Optionally, you can add options such as (values are the default):
+You can add options in the `Model` such this example (values are the default). 
+An empty object `{}` is required, though.
 
 ```js
 {
