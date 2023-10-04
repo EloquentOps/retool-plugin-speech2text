@@ -1,4 +1,5 @@
 import css from './style.module.css'
+import { version } from '../package.json'
 
 const Ret = window.Retool
 
@@ -18,7 +19,7 @@ const buildUI = (model) => {
 
     const titleWrapper = document.createElement('div')
     titleWrapper.classList.add(css.title)
-    titleWrapper.innerHTML = 'Speech 2 Text'
+    titleWrapper.innerHTML = 'Speech 2 Text' + ' ('+version+')'
     document.body.append(titleWrapper)
 
     const row = document.createElement('div')
