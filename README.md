@@ -6,7 +6,7 @@ It requires, the first time, the permission from the browser to use the micropho
 
 **Heads up!**
 
-**It ONLY works with Google Chrome because it uses the Chrome SpeechRecognition capability (that is based on Google CLoud API)**
+**It ONLY works with Google Chrome because it uses the Chrome SpeechRecognition capability (that is based on Google Cloud API)**
 
 ### Installation
 
@@ -44,7 +44,7 @@ Please refer to this [official documentation](https://developer.mozilla.org/en-U
 
 ### How to get back the text
 
-Fair question. The component expose two additional properties in its model:
+Fair question. The component exposes two additional properties in its model:
 
 ```js
 {
@@ -53,4 +53,8 @@ Fair question. The component expose two additional properties in its model:
 }
 ```
 
-So, you can bind them to your Retool component as usual you do in Retool.
+So, you can bind them to your Retool component as usual you do in Retool, such as:
+
+```
+Last message: {{customComponent2.model?.lastMessage}}
+```
