@@ -18,15 +18,18 @@ Put this code into the `IFrame Code` area of the Custom Component:
 <script src="https://unpkg.com/@eloquentops/retool-plugin-speech2text"></script>
 ```
 
-Allow the following checkbox in the `interaction` section:
-- Microphone
-- Storage and cookies
+Allow the following checkbox in the `interaction` section of the Custom Component:
+- [x] Microphone
+- [x] Storage and cookies
 
 
 ### Configuration
 
 You can add options in the `Model` such this example (values are the default). 
-An empty object `{}` is required, though.
+
+> [!NOTE]
+>
+> An empty object `{}` is required! Do not leave empty.
 
 ```js
 {
