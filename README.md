@@ -1,4 +1,4 @@
-## Speech to Text for Retool
+# Speech to Text for Retool
 
 A Custom Component for Retool that adds **Speech to Text** capability.
 
@@ -10,7 +10,7 @@ A Custom Component for Retool that adds **Speech to Text** capability.
 >
 > It ONLY works with Google Chrome because it uses the Chrome SpeechRecognition capability (that is based on Google Cloud API)
 
-### Installation
+## Installation
 
 Drag a Custom Component into your canvas in a Retool app.
 
@@ -25,7 +25,7 @@ Allow the following checkbox in the `interaction` section of the Custom Componen
 - [x] Storage and cookies
 
 
-### Configuration
+## Configuration
 
 You can add options in the `Model` such this example (values are the default). 
 
@@ -51,7 +51,7 @@ Please refer to this [official documentation](https://developer.mozilla.org/en-U
 >
 > Right now, when you change an option in the Model, you need to reload the component, because `SpeechRecognition` cannot be reset at runtime. 
 
-### How to get back the text
+## How to get back the text
 
 Fair question. The component exposes two additional properties in its model:
 
@@ -67,3 +67,9 @@ So, you can bind them to your Retool component as usual you do with Retool compo
 ```
 Last message: {{customComponent2.model?.lastMessage}}
 ```
+
+## Licence
+
+This plugin is released under the [3-Clause BSD license](LICENSE).
+
+Copyright © 2023 Fabio Franchino, [https://fabiofranchino.com](https://fabiofranchino.com)
