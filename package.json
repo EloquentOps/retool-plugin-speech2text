@@ -1,6 +1,6 @@
 {
   "name": "@eloquentops/retool-plugin-speech2text",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "A Retool Plugin by EloquentOps",
   "homepage": "https://eloquent-ops.com",
   "unpkg": "dist/retool-plugin-speech2text.min.js",
