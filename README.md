@@ -42,6 +42,10 @@ Please refer to this [official documentation](https://developer.mozilla.org/en-U
 
 `keepActive` is a custom option that force the restart of the speech in case of silence. Otherwise the `SpeechRecognition` will end automatically.
 
+**Heads up!**
+
+**Right now, when you change an option in the Model, you need to reload the component, because `SpeechRecognition` cannot be reset at runtime.** 
+
 ### How to get back the text
 
 Fair question. The component exposes two additional properties in its model:
