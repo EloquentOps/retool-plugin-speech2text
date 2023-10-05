@@ -67,7 +67,7 @@ body{
 }
 
 .err{
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     user-select: none;
     pointer-events: none;
     position: absolute;
@@ -80,7 +80,7 @@ body{
     align-items: center;
     justify-content: center;
     text-align: center;
-    background-color: rgba(255,255,255,.7);
+    background-color: rgba(255,230,230,.85);
 }
 
 .active{

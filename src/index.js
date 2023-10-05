@@ -13,12 +13,24 @@ const errors = {
 }
 
 const buildUI = (model) => {
+    console.log('buildUI')
     document.body.classList.add(css.speecher)
 
     const titleWrapper = document.createElement('div')
     titleWrapper.classList.add(css.title)
     titleWrapper.innerHTML = 'Speech-2-Text' + ' (v'+version+')'
     document.body.append(titleWrapper)
+
+    errWrapper = document.createElement('div')
+    errWrapper.classList.add(css.err)
+    errWrapper.style.visibility = 'hidden'
+
+    const speechRec = window.SpeechRecognition || window.webkitSpeechRecognition
+
+    if(!speechRec){
+        errWrapper.style.visibility = 'visible'
+        errWrapper.innerHTML = 'Your browser is not supported, sorry.'
+    }
 
     const row = document.createElement('div')
     row.classList.add(css.row)
@@ -41,11 +53,10 @@ const buildUI = (model) => {
         stopSpeecher()
     })
 
-
-    errWrapper = document.createElement('div')
-    errWrapper.classList.add(css.err)
-    errWrapper.style.visibility = 'hidden'
     document.body.append(errWrapper)
+
+    
+
 }
 
 
@@ -64,6 +75,7 @@ const cleanBtn = () => {
 }
 
 const buildSpeecher = (model) => {
+    console.log('buildSpeecher')
     const { continuous = false, interimResults = true, lang = 'en-US', maxAlternatives = 1, keepActive = true} = model || {}
 
     recognition = new webkitSpeechRecognition()
@@ -84,6 +96,7 @@ const buildSpeecher = (model) => {
     }
 
     recognition.onstart = function() { 
+        console.log('onstart')
         errWrapper.style.visibility = 'hidden'
         isError = false
 
@@ -93,7 +106,7 @@ const buildSpeecher = (model) => {
     }
 
     recognition.onerror = function(event) { 
-
+        console.log('onerror', event)
         cleanBtn()
         startBtn.classList.add(css.inactive)
         stopBtn.classList.add(css.inactive)
@@ -110,6 +123,7 @@ const buildSpeecher = (model) => {
     }
     recognition.onend = function() { 
         if(isError) return
+        console.log('onend')
 
         cleanBtn()
         startBtn.classList.add(css.active)
@@ -133,14 +147,6 @@ const stopSpeecher = () => {
 
 Ret.subscribe(_model => {
     const model = _model || {}
-
-    const speechRec = window.SpeechRecognition || window.webkitSpeechRecognition
-
-    if(!speechRec){
-        errWrapper.style.visibility = 'visible'
-        errWrapper.innerHTML = 'Your browser is not supported, sorry.'
-        return console.log('Speech2Text: no SpeechRecognition')
-    }
 
     if(!model?.lastMessage && !model?.messages){
         console.log('Speech2Text: model changed from editor')
