@@ -8,7 +8,7 @@ A Custom Component for Retool that adds **Speech to Text** capability.
 
 > [!WARNING]
 >
-> Please refer to the  [official documentation](https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition) of the **SpeechRecognition** capability about browsers compatibility and different implementations between vendors. We've only tested successfully on Mac with Google Chrome.
+> Please refer to the  [official documentation](https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition) of the **SpeechRecognition** capability about browsers compatibility and different implementations between vendors. We've only tested successfully on Google Chrome.
 
 ## Installation
 
