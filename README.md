@@ -4,9 +4,9 @@ A Custom Component for Retool that adds Speech to Text capability.
 
 It requires, the first time, the permission from the browser to use the microphone.
 
-**Heads up!**
-
-**It ONLY works with Google Chrome because it uses the Chrome SpeechRecognition capability (that is based on Google Cloud API)**
+> [!IMPORTANT]
+>
+> :warning: It ONLY works with Google Chrome because it uses the Chrome SpeechRecognition capability (that is based on Google Cloud API)
 
 ### Installation
 
@@ -42,9 +42,7 @@ Please refer to this [official documentation](https://developer.mozilla.org/en-U
 
 `keepActive` is a custom option that force the restart of the speech in case of silence. Otherwise the `SpeechRecognition` will end automatically.
 
-**Heads up!**
-
-**Right now, when you change an option in the Model, you need to reload the component, because `SpeechRecognition` cannot be reset at runtime.** 
+> :warning: Right now, when you change an option in the Model, you need to reload the component, because `SpeechRecognition` cannot be reset at runtime. 
 
 ### How to get back the text
 
