@@ -1,8 +1,10 @@
 ## Speech to Text for Retool
 
-A Custom Component for Retool that adds Speech to Text capability.
+A Custom Component for Retool that adds **Speech to Text** capability.
 
-It requires, the first time, the permission from the browser to use the microphone.
+> [!NOTE]
+>
+> It requires, only the first time, the permission from the browser to use the microphone.
 
 > [!WARNING]
 >
@@ -10,7 +12,7 @@ It requires, the first time, the permission from the browser to use the micropho
 
 ### Installation
 
-Drag a Custom Component into your canvas.
+Drag a Custom Component into your canvas in a Retool app.
 
 Put this code into the `IFrame Code` area of the Custom Component:
 
@@ -27,7 +29,7 @@ Allow the following checkbox in the `interaction` section of the Custom Componen
 
 You can add options in the `Model` such this example (values are the default). 
 
-> [!NOTE]
+> [!IMPORTANT]
 >
 > An empty object `{}` is required! Do not leave empty.
 
@@ -43,7 +45,7 @@ You can add options in the `Model` such this example (values are the default).
 
 Please refer to this [official documentation](https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition) about the `SpeechRecognition` options.
 
-`keepActive` is a custom option that force the restart of the speech in case of silence. Otherwise the `SpeechRecognition` will end automatically.
+`keepActive` is a custom option that force the restart of the speech in case of silence. Otherwise the `SpeechRecognition` will close automatically after few seconds of silence.
 
 > [!IMPORTANT]
 >
@@ -60,7 +62,7 @@ Fair question. The component exposes two additional properties in its model:
 }
 ```
 
-So, you can bind them to your Retool component as usual you do in Retool, such as:
+So, you can bind them to your Retool component as usual you do with Retool components, such as:
 
 ```
 Last message: {{customComponent2.model?.lastMessage}}
