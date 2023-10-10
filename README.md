@@ -2,7 +2,7 @@
 
 A Custom Component for Retool that adds **Speech to Text** capability.
 
-![](cover.gif)
+[![npm version](https://badge.fury.io/js/@eloquentops%2Fretool-plugin-speech2text.svg)](https://badge.fury.io/js/@eloquentops%2Fretool-plugin-speech2text)
 
 > [!NOTE]
 >
@@ -41,17 +41,26 @@ You can add options in the `Model` such this example (values are the default).
     continuous: false,
     interimResults: true,
     maxAlternatives: 1,
-    keepActive: true
 }
 ```
 
 Please refer to this [official documentation](https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition) about the `SpeechRecognition` options.
 
+Further options are:
+
+```js
+{
+  keepActive: true,
+  labelStart: 'Start',
+  labelStop: 'Stop'
+}
+```
+
 `keepActive` is a custom option that force the restart of the speech in case of silence. Otherwise the `SpeechRecognition` will close automatically after few seconds of silence.
 
 > [!IMPORTANT]
 >
-> Right now, when you change an option in the Model, you need to reload the component, because `SpeechRecognition` cannot be reset at runtime. 
+> Right now, when you change an option in the Model, you need to reload the component, because `SpeechRecognition` cannot be reset at runtime. If you need to set an option through another component at runtime, such as select the language, you can trigger a custom component reload during on-change event of the select component.
 
 ## How to get back the text
 

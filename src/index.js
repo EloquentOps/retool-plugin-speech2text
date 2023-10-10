@@ -3,10 +3,9 @@ import { version } from '../package.json'
 
 const Ret = window.Retool
 
-let startBtn
-let stopBtn
+let toggleBtn
 let errWrapper
-
+let isRec = false
 
 const errors = {
     'not-allowed': 'You need to allow "Microphone" and "Storage and cookies" in Custom Component panel.',
@@ -14,13 +13,7 @@ const errors = {
 }
 
 const buildUI = (model) => {
-    console.log('buildUI')
     document.body.classList.add(css.speecher)
-
-    const titleWrapper = document.createElement('div')
-    titleWrapper.classList.add(css.title)
-    titleWrapper.innerHTML = 'Speech-2-Text' + ' (v'+version+')'
-    document.body.append(titleWrapper)
 
     errWrapper = document.createElement('div')
     errWrapper.classList.add(css.err)
@@ -37,26 +30,24 @@ const buildUI = (model) => {
     row.classList.add(css.row)
     document.body.append(row)
 
-    startBtn = document.createElement('button')
-    startBtn.textContent = 'Start'
-    startBtn.classList.add(css.button)
-    row.append(startBtn)
-    startBtn.addEventListener('click', () => {
-        if(!recognition) buildSpeecher(model)
-        startSpeecher()
-    })
+    const { labelStart = 'Start' } = model || {}
 
-    stopBtn = document.createElement('button')
-    stopBtn.textContent = 'Stop'
-    stopBtn.classList.add(css.button, css.inactive)
-    row.append(stopBtn)
-    stopBtn.addEventListener('click', () => {
-        stopSpeecher()
+    toggleBtn = document.createElement('button')
+    toggleBtn.textContent = labelStart
+    toggleBtn.classList.add(css.button)
+    row.append(toggleBtn)
+    toggleBtn.addEventListener('click', () => {
+        if(isRec){
+            stopSpeecher()
+            isRec = false
+        }else{
+            if(!recognition) buildSpeecher(model)
+            startSpeecher()
+            isRec = true
+        }
     })
 
     document.body.append(errWrapper)
-
-    
 
 }
 
@@ -70,14 +61,17 @@ let isError = false
 
 const messages = []
 
-const cleanBtn = () => {
-    startBtn.classList.remove(css.active, css.inactive)
-    stopBtn.classList.remove(css.active, css.inactive)
-}
 
 const buildSpeecher = (model) => {
-    console.log('buildSpeecher')
-    const { continuous = false, interimResults = true, lang = 'en-US', maxAlternatives = 1, keepActive = true} = model || {}
+    const { 
+        continuous = false, 
+        interimResults = true, 
+        lang = 'en-US', 
+        maxAlternatives = 1, 
+        keepActive = true,
+        labelStart = 'Start', 
+        labelStop = 'Stop'
+    } = model || {}
 
     recognition = new webkitSpeechRecognition()
     recognition.continuous = continuous
@@ -97,21 +91,12 @@ const buildSpeecher = (model) => {
     }
 
     recognition.onstart = function() { 
-        console.log('onstart')
         errWrapper.style.visibility = 'hidden'
         isError = false
-
-        cleanBtn()
-        stopBtn.classList.add(css.active)
-        startBtn.classList.add(css.inactive)
+        toggleBtn.textContent = labelStop
     }
 
     recognition.onerror = function(event) { 
-        console.log('onerror', event)
-        cleanBtn()
-        startBtn.classList.add(css.inactive)
-        stopBtn.classList.add(css.inactive)
-
         errWrapper.style.visibility = 'visible'
         errWrapper.innerHTML = errors[event.error]
 
@@ -123,13 +108,8 @@ const buildSpeecher = (model) => {
         }
     }
     recognition.onend = function() { 
+        toggleBtn.textContent = labelStart
         if(isError) return
-        console.log('onend')
-
-        cleanBtn()
-        startBtn.classList.add(css.active)
-        stopBtn.classList.add(css.inactive)
-        
         if(keepActive && !paused) startSpeecher()
     }
 
