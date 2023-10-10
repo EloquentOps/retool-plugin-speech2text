@@ -2,6 +2,8 @@
 
 A Custom Component for Retool that adds **Speech to Text** capability.
 
+![](cover.gif)
+
 > [!NOTE]
 >
 > It requires, only the first time, the permission from the browser to use the microphone.
