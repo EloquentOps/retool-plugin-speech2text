@@ -58,6 +58,8 @@ Further options are:
 
 `keepActive` is a custom option that force the restart of the speech in case of silence. Otherwise the `SpeechRecognition` will close automatically after few seconds of silence.
 
+The component renders a single button, thus, you can configure labels of the two states.
+
 > [!IMPORTANT]
 >
 > Right now, when you change an option in the Model, you need to reload the component, because `SpeechRecognition` cannot be reset at runtime. If you need to set an option through another component at runtime, such as select the language, you can trigger a custom component reload during on-change event of the select component.
@@ -73,7 +75,7 @@ Fair question. The component exposes two additional properties in its model:
 }
 ```
 
-So, you can bind them to your Retool component as usual you do with Retool components, such as:
+So, you can bind them to your Retool components as you normally would do, such as:
 
 ```
 Last message: {{customComponent2.model?.lastMessage}}
