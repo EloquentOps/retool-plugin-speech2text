@@ -34,17 +34,16 @@ body{
 
     color: white;
     border:none;
-    background-color: #3c92dc;
+    background-color: #1C37F3;
 
     border:none; 
-    border:1px solid #266ebdff;
+    border:1px solid #2655f6;
     border-radius:4px; 
     width: 100%;
     height: 100%;
 }
 .button:hover{
-    background-color: #3282ceff;
-    border:1px solid #1f60aeff;
+    border:1px solid #2655f6;
 }
 
 
