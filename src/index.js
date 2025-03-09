@@ -70,7 +70,8 @@ const buildSpeecher = (model) => {
         maxAlternatives = 1, 
         keepActive = true,
         labelStart = 'Start', 
-        labelStop = 'Stop'
+        labelStop = 'Stop',
+        preload = false
     } = model || {}
 
     recognition = new webkitSpeechRecognition()
@@ -131,6 +132,13 @@ Ret.subscribe(_model => {
 
     if(!model?.lastMessage && !model?.messages){
         console.log('Speech2Text: model changed from editor')
+    }
+
+    const { preload = false } = model || {}
+    if(preload){
+        console.log('Speech2Text: component is preloaded')
+        // just return true to avoid buildUI for preload purposes
+        return true
     }
 
     if(!inited){
