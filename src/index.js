@@ -13,6 +13,7 @@ const errors = {
 }
 
 const buildUI = (model) => {
+    const { btnColor = '#3170f9' } = model || {}
     document.body.classList.add(css.speecher)
 
     errWrapper = document.createElement('div')
@@ -35,6 +36,7 @@ const buildUI = (model) => {
     toggleBtn = document.createElement('button')
     toggleBtn.textContent = labelStart
     toggleBtn.classList.add(css.button)
+    toggleBtn.style.backgroundColor = btnColor
     row.append(toggleBtn)
     toggleBtn.addEventListener('click', () => {
         if(isRec){
@@ -71,7 +73,6 @@ const buildSpeecher = (model) => {
         keepActive = true,
         labelStart = 'Start', 
         labelStop = 'Stop',
-        preload = false
     } = model || {}
 
     recognition = new webkitSpeechRecognition()
